@@ -1,0 +1,8 @@
+p1_sucr1 ordinal {-18,-16,-14,-12,-10,-8,-6,-4,-2} [-2]
+p2_frc2 ordinal {-18,-16,-14,-12,-10,-8,-6,-4,-2} [-14]
+p3_nh4Ec ordinal {-18,-16,-14,-12,-10,-8,-6,-4,-2} [-10]
+p4_nh4KT ordinal {-18,-16,-14,-12,-10,-8,-6,-4,-2} [-10]
+p5_nmodels categorical {2_models, 3_models} [3_models]
+p6_biomass_Ecb ordinal {0.05,0.075,0.1,0.125} [0.075] 
+p7_biomass_KT ordinal {0.05,0.075,0.1,0.125} [0.075]
+p8_biomass_Ecglyc ordinal {0.05,0.075,0.1,0.125} [0.075]
