@@ -1,0 +1,2 @@
+# CATEGORICAL PLOTTING by fitness ranks
+plotting_params:global_final_biomass,MetNar_mM,Nar_mM,endCycle
