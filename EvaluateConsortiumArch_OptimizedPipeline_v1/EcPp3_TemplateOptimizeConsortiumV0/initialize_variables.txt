@@ -1,4 +1,0 @@
-initialize_models_iEC1364_W_p_coumarate:sucr1,nh4_Ec
-initialize_models_iEC1364_W_exc_glycosilator:sucr1,nh4_Ec
-initialize_models_iEC1364_W_unique_nar7glu:sucr1,nh4_Ec
-initialize_models_iJN1463_narB12:frc2,nh4_KT
