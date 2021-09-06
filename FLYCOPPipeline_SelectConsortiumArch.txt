@@ -1,0 +1,200 @@
+PIPELINE EXAMPLES: 'SelectConsortiumArchitecture' in FLYCOP
+September 06th, 2021
+=======================================================================================
+=======================================================================================
+
+A) SelectConsortiumArchitecture_GlycNaringenin
+
+* METABOLIC OBJECTIVE: NARINGENIN GLYCOSILATION
+
+* FILE REVIEW: OK 
+
+* FLYCOP TRIAL: sh FLYCOP.sh 'EcPp3' 0 V0 'MaxGlycNar' 10 '2_models 3_models'
+	- OUTPUT REVIEW: OK
+	
+NOTE THAT: there might be some biochemical incompatibilities for the 3-model consortium
+
+=======================================================================================
+
+B) SelectConsortiumArchitecture_2Ssakuranetine
+
+* METABOLIC OBJECTIVE: NARINGENIN METILATION
+
+* FILE REVIEW: OK 
+
+* FLYCOP TRIAL: sh FLYCOP.sh 'EcPp3' 0 V0 'MaxMetNar' 10 '2_models 3_models'
+	- OUTPUT REVIEW: OK
+	
+=======================================================================================
+
+C) SelectConsortiumArchitecture_6GeranylNar
+
+* METABOLIC OBJECTIVE: NARINGENIN DECORATION WITH GERANYL
+
+* FILE REVIEW: OK 
+
+* FLYCOP TRIAL: sh FLYCOP.sh 'EcPp3' 0 V0 'MaxGerNar' 10 '2_models 3_models'
+	- OUTPUT REVIEW: OK
+	
+=======================================================================================
+
+
+FILE ADAPTATION FOR A NEW METABOLIC OBJECTIVE
+#############################################
+
+A. "xxx_TemplateOptimizeConsortiumVX" folder.
+
+	* "Comets" folder.
+		- 'comets_src' (default script)
+		
+		- 'comets_script_template{n_models}' (see examples, as many files as consortium architectures for a given FLYCOP pipeline)
+		
+		- 'xxx_layout_template{z}_{n_models}' (as many layouts as consortium architectures for a given FLYCOP pipeline). Usually, the layout (media) is the same for all architectures, being the only changes:
+		
+		i) the first line (model_file)
+		ii) the initial microbial population (as many values as microbes in a given consortium)
+		
+		Otherwise, see COMETS instructions.
+
+	* "ModelsInput" folder: xml models for microbes, depending on the consortium architectures developed.
+	
+	* General txt files for the main Python script ('xxx_generalized.py') to work. See description in the mention Python script, except for 'SMAC_conditionals_arch.txt' in 'EcPp3_define_SMAC_conditionals_arch.py'.
+		- 'define_architecture.txt'
+		- 'initialize_models.txt'
+		- 'initialize_variables.txt'
+		- 'SMAC_conditionals_arch.txt'
+
+
+
+B. "Scripts" folder.
+
+	SMAC-related files
+	------------------
+		* 'EcPp3_confFLYCOP_params_v0_generalized.pcs'. SMAC parameter file, general structure.
+			i) Uptake rates
+			ii) FVA rates
+			iii) Consortium Architecture argument
+			iii) Biomass arguments: the order of biomasses in this file should be the same as in the biomass-values list used along the different Python scripts.
+		
+		OTHER NOTES: 
+			- Parameter names should only use '_' for separating the parameter number ('p1') from the parameter name. Otherwise, the '_' symbol is reserved for biomass codification ('_biomass_').
+			- Note the '0' figure for parameter arguments under 10; i.e. '01', '02', etc.
+
+		* 'EcPp3_confFLYCOP_scenario_v0_generalized.txt'. No usual changes required, except for the 'pcs-file' and 'algo' names. See examples.
+	
+	
+	Main Python files
+	-----------------
+		* 'EcPp3_generalized.py'. Adapt function of 'SelectConsortiumArchitecture()'.
+			- Main function parameters: exchange & FVA rates, 'fitObj', SD-cutoff value.
+			- Section on 'COMETS: running and results'. 
+				a. 'Initial variables to track during execution'.
+				b. n_metabolites, baseConfig variables.
+				c. 'Line to plot COMETS output' (related to sh plotting file).
+				d. 'INDEX REFERENCES IN COMETS FILE (organized in columns)' (Comment section).
+				e. '(2) FINAL CONCENTRATIONS' of nutrients within the media.
+				f. '(5) COMPUTE FITNESS' section.
+				g. '(6) UPDATE REPEATS' section.
+				h. 'PRINTING' of results section.
+				
+			-  'END OF 5 REPEATS' section: variables such as avgNar, avgglycNar.
+			- 'SAVE RESULTS in TABLE' section. 'Header' and 'Information Line' adaptation to suit user purposes.
+		
+		* 'EcPp3_generalized_initialize_GEMs.py'. The user must design this script with the GEM-models being part of all possible consortia in the given FLYCOP pipeline. See examples for further explanation.
+		
+		* 'EcPp3_wrapperFLYCOP_v0_generalized.py'. Required changes:
+			- Section on 'FOLDERS'.
+			- Section on 'OTHER VARIABLES'.
+			- Section on 'REST OF STUDY PARAMETERS OPTIMIZED BY SMAC'.
+			- Line on 'Running the wrapper-script in SMAC' (final running of the function 'SelectConsortiumArchitecture()').
+		
+		* 'EcPp3_individualTestFLYCOP_v0_generalized.py'. Required changes:
+			- Section on 'OTHER VARIABLES'. 
+			- Section on 'STUDY PARAMETERS OPTIMIZED BY SMAC'.
+			- Line on 'RUN EXECUTION' (final running of the function 'SelectConsortiumArchitecture()').
+		
+		
+	Analysis files
+	--------------
+		* 'FLYCOPanalyzingResults_EcPp3.sh'. Required changes:
+			- Section on 'Retrieve optimal configuration' (as many parameters as the number of uptake and FVA rates, plus the consortium architecture argument - 'n_models').
+			- Substitute all appearances of the first SMAC argument name (i.e. 'p01_sucr1') for the new first SMAC argument.
+			- Line on 'Optimal consortium configuration found'.
+			- Line on 'individualTestFLYCOP_*.py'. Adapt command line arguments.
+		
+		* 'plot_biomassX2_vs_4mediaItem_glic_generalized.sh'. Required changes:
+			- Preprocessing of command line arguments.
+			- Sections on 'PREPROCESSING OF METABOLITES (I, II)'.
+			- Section on 'FILE GENERATION & FINAL PLOTTING'.
+			
+		* 'plot.biomassX2.vs.4substrate_glic_generalized.r'.
+			- Preprocessing of command line arguments.
+			- Section on 'DATAFRAME'. Main metabolite columns.
+			- 'PLOT FILE' section. Essentially, 'METABOLITES' details.
+			- Section on 'LEGEND AND TITLE FOR THE PLOT'.
+	
+	
+	Python scripts which do not need further adaptation
+	---------------------------------------------------
+		- 'EcPp3_define_SMAC_conditionals_arch.py'
+		- 'EcPp3_preliminaryAnalysis1.py'
+		- 'EcPp3_preliminaryAnalysis2.py'
+
+
+
+C. 'InitializeDocker*' files: initial Docker update needed to run the pipeline on 'SelectConsortiumArchitecture' for FLYCOP. No changes required.
+
+D. 'FLYCOP.sh' file: original file to launch FLYCOP pipeline. No changes required.
+
+E. 'README.txt' file: general text description of the metabolic objective and consortium architectures for a given FLYCOP pipeline ('SelectConsortiumArchitecture'). It should be written by the user or pipeline designer.
+
+
+
+============================================================================================================================================================
+
+OTHER KEY POINTS
+################
+
+	* 'endCycle' of individual simulations and 'dead_biomass_tracking' function. See further explanation in 'xxx_generalized.py' Python script. TO-DO:
+		- Further implementation of the function on 'dead_biomass_tracking'.
+		- Also consider essential nutrient exhaustion for determining the end of an individual simulation.
+	
+	* SD cutoff value: if the standard deviation (SD) of the 5 repeats performed for each configuration is higher than a given percentage (%) of the average fitness of those 5 repeats, the configuration is discarded (ID_SD = 1). The variable 'sd_cutoff' is 0.1 by default ('xxx_generalized.py'): if a different value for this variable is desired, it has to be changed in the 'wrapper*.py' and 'individualTest*.py' files.
+	
+	
+	
+============================================================================================================================================================
+
+IT WOULD BE INTERESTING TO TEST
+###############################
+	
+	* SMAC Conditional Parameter Clauses with 2, 3 and 4 model consortia. In other words, several consortium architectures over the standard consortium (i.e. 2-model case).
+		
+	* SMAC Conditional Parameter Clauses: several conditionals for different microbes within the same consortium architecture. Example:
+	
+		p9_biomass_Ecglyc1 | p5_nmodels == 4_models
+		p10_biomass_Ecglyc2 | p5_nmodels == 4_models
+		
+	* Correct specification of 'endCycle' variable in those configurations with "BiomassLoss" = -1 (endCycle=240) and "BiomassLoss" = 1 ('endCycle' should be lower than 240, but equal or higher than the cycle when this effect is registered to start)
+	
+	
+	
+============================================================================================================================================================
+
+CURRENT LIMITATIONS
+###################
+	
+	* High script-specificity of 'Analysis files' and 'Main Python files' within a FLYCOP Pipeline case
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
