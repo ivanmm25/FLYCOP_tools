@@ -1,0 +1,2 @@
+2_models:iEC1364W_uger,iJN1463
+3_models:iEC1364W,iJN1463,iEC1364Wger

@@ -1,0 +1,6 @@
+seed = 123
+use-instances = false
+runObj = QUALITY
+numberOfRunsLimit = 500
+pcs-file = EcPp3_confFLYCOP_params_v0_generalized.pcs
+algo = "python3 -W ignore ../Scripts/EcPp3_wrapperFLYCOP_v0_generalized.py"
