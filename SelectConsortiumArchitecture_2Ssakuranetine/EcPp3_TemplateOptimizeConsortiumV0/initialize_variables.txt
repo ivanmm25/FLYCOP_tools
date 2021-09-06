@@ -1,0 +1,4 @@
+initialize_models_iEC1364_W_p_coumarate:sucr1,nh4_Ec,FVApCA,FVAfru
+initialize_models_iEC1364_W_exc_metilator:sucr1,nh4_Ec,FVAMetNar
+initialize_models_iEC1364_W_unique_saku2:sucr1,nh4_Ec,FVApCA,FVAfru,FVAMetNar
+initialize_models_iJN1463_narB12:frc2,nh4_KT,FVANar
