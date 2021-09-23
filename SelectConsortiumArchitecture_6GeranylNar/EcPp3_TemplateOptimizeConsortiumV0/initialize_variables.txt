@@ -1,4 +1,0 @@
-initialize_models_iEC1364_W_p_coumarate:sucr1,nh4_Ec,FVApCA,FVAfru
-initialize_models_iEC1364_W_exc_geranyl:sucr1,nh4_Ec,FVAGerNar
-initialize_models_iEC1364_W_unique_geranyl:sucr1,nh4_Ec,FVApCA,FVAfru,FVAGerNar
-initialize_models_iJN1463_narB12:frc2,nh4_KT,FVANar
