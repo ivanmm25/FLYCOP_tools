@@ -1,0 +1,12 @@
+# Biomasses by Consortium Architecture
+3_models:init_iJN1463,init_iEC1364Wger,init_iEC1364W,final_iJN1463,final_iEC1364Wger,final_iEC1364W
+2_models:init_iJN1463,init_iEC1364Wuger,final_iJN1463,final_iEC1364Wuger
+# Global Biomass Analysis
+global_biomass:global_init_biomass,global_final_biomass
+# Nutrient Analysis
+nutrientAnalysis:GerNar_mM,Nar_mM,NH4_mM,pi_mM,FinalSucr_mM,FinalO2_mM
+# EndCycle Nutrient Analysis
+endCycleNutrientAnalysis:sucrcycle,nh4cycle,picycle,o2cycle,endCycle
+initCycleNutrientAnalysis:6gernarcycle,narcycle
+# Intermediate-to-End product relationship
+productRelationship:GerNar_mM,Nar_mM

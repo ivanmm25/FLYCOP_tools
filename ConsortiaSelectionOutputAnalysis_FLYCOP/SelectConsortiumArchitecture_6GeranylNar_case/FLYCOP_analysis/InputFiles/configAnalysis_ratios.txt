@@ -1,0 +1,4 @@
+# RATIOS fitness_vs_ratio
+finalProducts_ratio:GerNar_mM,Nar_mM
+Cuptake_ratio:sucr_upt,frc_upt
+biomass_ratio:global_final_biomass,global_init_biomass

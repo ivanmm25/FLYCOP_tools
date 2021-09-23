@@ -1,0 +1,23 @@
+---
+title: "General Report Description"
+author: "Iván Martín Martín"
+date: "September, 2021"
+output: pdf_document
+---
+
+See each individual report within each `SelectConsortiumArchitecture` folder case.
+
+# Introduction {#Intro}
+
+The current report describes the general lines of working and interpretation of **output evaluation** for the **FLYCOP Pipeline for Selection of Consortium Architecture**. With this purpose, two testing examples have been developed, where:
+
+- the FLYCOP pipeline evaluates **consortia of two and three strains**, simultaneously
+
+- an **output analysis** is performed, by means of FLYCOP automatic output and a series of additional output scripts recently developed \newline
+
+The testing examples used *E.coli iEC1364W* and *P.putida iJN1463* as base strains and had **two different metabolic objectives**: (1) 2S-sakuranetine production and (2) 6-Geranyl-Naringenin production. \newline
+
+
+### FLYCOP notes to be considered
+
+* Each of these FLYCOP examples has been run with 100 configurations as the SMAC upper limit for optimization.

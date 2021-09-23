@@ -1,0 +1,6 @@
+# Scatterplot matrix variables (dict format)
+scattermatrix:sucr_upt,frc_upt,nh4_Ec,nh4_KT,global_init_biomass,global_final_biomass,GerNar_mM
+# Heatmap variables (dict format)
+heatmap:sucr_upt,frc_upt,nh4_Ec,nh4_KT,global_init_biomass,global_final_biomass,GerNar_mM
+# FVA analysis as Histogram
+FVAanalysis:FVAfru,FVApCA,FVANar,FVAGerNar

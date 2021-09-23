@@ -1,0 +1,6 @@
+# Exchange rate analysis
+exchangeRates_discrete:sucr_upt,frc_upt,nh4_Ec,nh4_KT
+# FVA analysis
+FVAanalysis_discrete:FVApCA,FVAfru,FVAGerNar,FVANar
+# Statistical Description
+statsDescription:global_init_biomass,global_final_biomass,fitFunc,SD,GerNar_mM,Nar_mM,NH4_mM,pi_mM,FinalSucr_mM,FinalO2_mM
