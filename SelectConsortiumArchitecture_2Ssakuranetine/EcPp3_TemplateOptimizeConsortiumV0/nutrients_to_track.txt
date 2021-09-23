@@ -1,0 +1,7 @@
+sucr:0,substrate
+2saku:1,product
+fru:2,product
+nar:3,product
+nh4:4,substrate
+pi:5,substrate
+o2:6,substrate
