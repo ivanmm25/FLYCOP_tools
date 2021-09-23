@@ -1,2 +1,0 @@
-# Interval limits for Fitness Ranks
-fitness_ranks:0.652586,0.479828,0.005201,0.005166,0.003552,0
