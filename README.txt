@@ -9,7 +9,7 @@ CONTENTS
 ========
 
 1) Three examples for the new pipeline of selection of consortium architecture
------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 	FLYCOP is now able of selecting the best consortium architecture for a given metabolic objective: for instance, if a metabolic path should be divided into two, three or more strains (i.e. GEMs) for optimizing community fitness and final production objectives. The test cases are:
 
 		-  SelectConsortiumArchitecture_2Ssakuranetine, for production of 2S-sakuranetine in a 2-model or 3-model consortium.
